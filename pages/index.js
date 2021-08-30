@@ -7,6 +7,7 @@ export function getServerSideProps({ req }) {
     'github': 'https://github.com/maggie-j-liu',
     'website': "https://maggieliu.dev"
   }
+  console.log(req.headers.host);
   return {
     redirect: {
       destination: redirects[req.headers.host],
