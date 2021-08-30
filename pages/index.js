@@ -8,10 +8,15 @@ export function getServerSideProps({ req }) {
     'gh': 'https://github.com/maggie-j-liu',
     'website': "https://maggieliu.dev"
   }
-  console.log(req.headers.host);
+  const subdomain = req.headers.host.split('.')[0];
+  if (!redirects[subdomain]) {
+    return {
+      notFound: true
+    }
+  }
   return {
     redirect: {
-      destination: redirects[req.headers.host.split('.')[0]],
+      destination: redirects[subdomain],
       permanent: false
     }
   }
