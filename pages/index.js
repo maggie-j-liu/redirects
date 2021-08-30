@@ -1,4 +1,4 @@
-export default function getServerSideProps({ req }) {
+export function getServerSideProps({ req }) {
   const redirects = {
     'github': 'https://github.com/maggie-j-liu',
     'website': "https://maggieliu.dev"
