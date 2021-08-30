@@ -1,3 +1,7 @@
+export default function Home() {
+  return null;
+}
+
 export function getServerSideProps({ req }) {
   const redirects = {
     'github': 'https://github.com/maggie-j-liu',
