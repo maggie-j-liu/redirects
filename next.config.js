@@ -10,7 +10,7 @@ module.exports = {
             value: "gh" + baseDomain,
           },
         ],
-        destination: "https://github.com/:path*",
+        destination: "https://github.com/maggie-j-liu/:path*",
         permanent: false,
       },
       {
@@ -21,7 +21,7 @@ module.exports = {
             value: "github" + baseDomain,
           },
         ],
-        destination: "https://github.com/:path*",
+        destination: "https://github.com/maggie-j-liu/:path*",
         permanent: false,
       },
       {
