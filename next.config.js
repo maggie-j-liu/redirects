@@ -1,41 +1,32 @@
 const baseDomain = ".maggieliu.dev";
+const paths = [
+  {
+    subdomain: "gh",
+    destination: "https://github.com/maggie-j-liu",
+  },
+  {
+    subdomain: "github",
+    destination: "https://github.com/maggie-j-liu",
+  },
+  {
+    subdomain: "posts",
+    destination: "https://maggieliu.dev/posts",
+  },
+];
+
 module.exports = {
   async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "gh" + baseDomain,
-          },
-        ],
-        destination: "https://github.com/maggie-j-liu/:path*",
-        permanent: false,
-      },
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "github" + baseDomain,
-          },
-        ],
-        destination: "https://github.com/maggie-j-liu/:path*",
-        permanent: false,
-      },
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "website" + baseDomain,
-          },
-        ],
-        destination: "https://maggieliu.dev/:path*",
-        permanent: false,
-      },
-    ];
+    return paths.map((path) => ({
+      source: "/:path*",
+      has: [
+        {
+          type: "host",
+          value: path.subdomain + baseDomain,
+        },
+      ],
+      destination: path.destination + "/:path",
+      permanent: false,
+    }));
   },
   reactStrictMode: true,
 };
